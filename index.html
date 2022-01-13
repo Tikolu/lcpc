@@ -417,8 +417,8 @@
 				o6: 12,
 				o7: 0,
 				o8: 0,
-				merit: 66,
-				distinction: 46,
+				distinction: 66,
+				merit: 46,
 				pass: 28
 			}
 
@@ -483,8 +483,8 @@
 						<div class="grade-buttons">
 					`;
 					if(subjectData[1] == 0) html += `
-						<button class="grade${chosenSubjects[subject]=="merit"?" selected":""}">Merit</button>
 						<button class="grade${chosenSubjects[subject]=="distinction"?" selected":""}">Distinction</button>
+						<button class="grade${chosenSubjects[subject]=="merit"?" selected":""}">Merit</button>
 						<button class="grade${chosenSubjects[subject]=="pass"?" selected":""}">Pass</button>
 					`;
 					else {
