@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans&display=block");
+
+* {
+	font-family: "Spline Sans", sans-serif;
+	user-select: none;
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0 auto;
+	max-width: 40em;
+	padding: 0 0.5em;
+	background-color: white;
+}
+
+#points-counter:empty {
+	height: 0;
+}
+
+#points-counter {
+	text-align: center;
+	font-size: 4em;
+	letter-spacing: 0.5em;
+	padding-left: 0.5em;
+	height: 1em;
+	transition: height 500ms;
+}
+
+#subject-list > h2, #subject-list > h3 {
+	text-align: center;
+	margin: 2.2em 0;
+	padding: 0 1em;
+	animation: appear 500ms;
+}
+
+span {
+	display: inline-block;
+}
+
+span:not(:first-child) {
+	margin-left: 0.5ch;
+}
+
+#subject-list > div {
+	display: grid;
+	grid-template-columns: 1em auto;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid lightgrey;
+	position: relative;
+}
+
+#subject-list > div.new {
+	animation: appear 500ms;
+}
+
+#subject-list > div.delete {
+	animation: disappear 500ms forwards;
+}
+
+@keyframes appear {
+	from { transform: scale(0) }
+	to { transform: scale(1) }
+}
+
+@keyframes disappear {
+	from { transform: scale(1) }
+	to { transform: scale(0) }
+}
+
+#subject-list > div > h3, #grade-table .table-header {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-transform: capitalize;
+}
+
+#subject-list > div > h3, .grade-buttons {
+	margin: 0;
+	margin-left: 0.5em;
+	margin-bottom: 4px;
+	grid-column: 2;
+}
+
+.subject-points {
+	position: absolute;
+	top: 1.5em;
+	right: 0.5em;
+	font-style: italic;
+	transition: 500ms;
+	pointer-events: none;
+}
+
+.subject-points.fade {
+	opacity: 0;
+}
+
+.subject-points.inactive {
+	color: #bbb;
+}
+
+.remove-subject {
+	background-color: transparent;
+	color: inherit;
+}
+
+button {
+	cursor: pointer;
+	height: min-content;
+	box-sizing: content-box;
+	border: 0;
+	padding: 2px;
+	outline: solid 2px transparent;
+	transition: background-color 500ms;
+	background-color: #ddd;
+}
+
+button:hover, button.selected { background-color: #666 }
+
+.hl:hover, .hl.selected { background-color: #99f }
+.ol:hover, .ol.selected { background-color: #fa3 }
+
+.grade-buttons button {
+	width: min-content;
+	margin-bottom: 4px;
+	margin-right: 4px;
+}
+
+.hl, .ol {
+	width: 1.5em !important;
+}
+
+#bottom-bar, #bottom-links {
+	margin: 2em 0;
+	padding: 0 1em;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 100%;
+}
+
+#bottom-links {
+	border-top: 1px solid lightgrey;
+	padding-top: 2em;
+	font-size: min(2.5vw, 0.8em);
+}
+
+label {
+	white-space: nowrap;
+}
+
+select {
+	outline: 0;
+	padding: 0.2em;
+	margin: 0 0.5em;
+	border: 1px solid black;
+	border-radius: 0;
+	cursor: pointer;
+	width: min(100%, 10em);
+	background: white;
+}
+
+#bottom-bar a {
+	margin: 0;
+	margin-left: auto;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 2em;
+	background-color: rgba(0.2, 0.2, 0.2, 0.5);
+	animation: fade-in 500ms;
+}
+
+@keyframes fade-in {
+	from { opacity: 0 }
+	to { opacity: 1 }
+}
+
+.overlay:not(:target) {
+	display: none;
+}
+
+.overlay-content {
+	display: flex;
+	flex-direction: column;
+	max-width: 40em;
+	margin: 0 auto;
+	height: 100%;
+	background: white;
+	padding: 2em;
+}
+
+.overlay-content h1 {
+	text-align: center;
+}
+
+.overlay-content section {
+	overflow-y: scroll;
+	height: 100%;
+}
+
+.overlay-content button {
+	margin-top: auto;
+	width: 100%;
+	font-size: 1em;
+	padding: 0.5em 0;
+}
+
+#grade-table {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	width: min(100%, 30em);
+	font-size: min(1em, 4vw);
+	margin: 0 auto;
+	text-align: center;
+}
+
+#grade-table div {
+	padding-bottom: 1em;
+}
+
+#grade-table .table-header {
+	border-bottom: solid 1px lightgrey;
+	margin: 1em 0;
+}
+
+#error {
+	display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #222;
+		color: white;
+	}
+
+	.subject-points.inactive {
+		color: #444;
+	}
+
+	select {
+		background: #111;
+		color: inherit;
+		border: 1px solid white;
+	}
+
+	.overlay-content {
+		background: #222;
+	}
+}
