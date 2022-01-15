@@ -74,7 +74,7 @@ const renderSubjectList = () => {
 		subjectList.appendChild(element);
 	}
 	if(subjectList.childElementCount == 0) {
-		subjectList.innerHTML = "<h2><span>Leaving Cert Point Calculator</span><span>by Tikolu</span></h2><h3>To get started, add your subjects below:</h3>"
+		subjectList.innerHTML = "<h2>Leaving Cert Point Calculator</h2><h4>by Tikolu</h4><p>To get started, add your subjects below:</p>"
 	}
 	calculatePoints();
 }
