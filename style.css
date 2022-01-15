@@ -26,11 +26,22 @@ body {
 	transition: height 500ms;
 }
 
-#subject-list > h2, #subject-list > h3 {
+#subject-list > h2, #subject-list > h4, #subject-list > p {
 	text-align: center;
-	margin: 2.2em 0;
 	padding: 0 1em;
 	animation: appear 500ms;
+}
+
+#subject-list > h2 {
+	margin-bottom: 0;
+}
+
+#subject-list > h4 {
+	margin-top: 0;
+}
+
+#subject-list > p {
+	margin: 3em 0;
 }
 
 span {
@@ -112,6 +123,7 @@ button {
 	outline: solid 2px transparent;
 	transition: background-color 500ms;
 	background-color: #ddd;
+	color: black;
 }
 
 button:hover, button.selected { background-color: #666 }
@@ -174,22 +186,19 @@ a {
 
 .overlay {
 	position: fixed;
+	opacity: 1;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	padding: 2em;
 	background-color: rgba(0.2, 0.2, 0.2, 0.5);
-	animation: fade-in 500ms;
-}
-
-@keyframes fade-in {
-	from { opacity: 0 }
-	to { opacity: 1 }
+	transition: opacity 500ms;
 }
 
 .overlay:not(:target) {
-	display: none;
+	pointer-events: none;
+	opacity: 0;
 }
 
 .overlay-content {
