@@ -246,7 +246,8 @@ a {
 }
 
 #error {
-	display: block;
+	opacity: 1;
+	pointer-events: all;
 }
 
 @media (prefers-color-scheme: dark) {
